@@ -1,0 +1,24 @@
+{:deps {org.clojure/clojure    {:mvn/version "1.10.3"}
+        org.lwjgl/lwjgl        {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-glfw   {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-opengl {:mvn/version "3.2.3"}
+        nrepl/nrepl            {:mvn/version "0.8.3"}
+        #_#_uncomplicate/neanderthal {:mvn/version "0.43.3"
+                                  :exclusions [org.jcuda/jcuda-natives
+                                               org.jcuda/jcublas-natives]}}
+ :paths ["src"]
+ :mvn/repos {"space-maven" {:url "https://packages.jetbrains.team/maven/p/skija/maven"}}
+
+ :aliases
+ {:macos
+  {:extra-deps {org.jetbrains.skija/skija-macos-x64 {:mvn/version "0.93.6"}
+                org.lwjgl/lwjgl$natives-macos        {:mvn/version "3.2.3"}
+                org.lwjgl/lwjgl-glfw$natives-macos   {:mvn/version "3.2.3"}
+                org.lwjgl/lwjgl-opengl$natives-macos {:mvn/version "3.2.3"}}
+   :jvm-opts ["-XstartOnFirstThread"]}
+  :windows {:extra-deps {org.lwjgl/lwjgl$natives-windows        {:mvn/version "3.2.3"}
+                         org.lwjgl/lwjgl-glfw$natives-windows   {:mvn/version "3.2.3"}
+                         org.lwjgl/lwjgl-opengl$natives-windows {:mvn/version "3.2.3"}}}
+  :linux {:extra-deps {org.lwjgl/lwjgl$natives-linux        {:mvn/version "3.2.3"}
+                       org.lwjgl/lwjgl-glfw$natives-linux   {:mvn/version "3.2.3"}
+                       org.lwjgl/lwjgl-opengl$natives-linux {:mvn/version "3.2.3"}}}}}
